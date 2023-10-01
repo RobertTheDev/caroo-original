@@ -28,6 +28,9 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
+  // Enable express to use JSON.
+  server.use(express.json());
+
   // App router imports and defines express rest API endpoints.
   server.use('/api/', appRouter);
 

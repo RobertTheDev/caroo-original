@@ -7,6 +7,7 @@ import { CarsViewComponent } from './views/cars-view/cars-view.component';
 import { CreateCarViewComponent } from './views/create-car-view/create-car-view.component';
 import { CarViewComponent } from './views/car-view/car-view.component';
 import { UpdateCarViewComponent } from './views/update-car-view/update-car-view.component';
+import { CarService } from 'src/app/services/car/car.service';
 
 @NgModule({
   declarations: [
@@ -19,5 +20,6 @@ import { UpdateCarViewComponent } from './views/update-car-view/update-car-view.
     UpdateCarViewComponent,
   ],
   imports: [CommonModule],
+  providers: [CarService],
 })
 export class CarModule {}

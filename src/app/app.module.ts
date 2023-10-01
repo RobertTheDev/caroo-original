@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CarModule } from './modules/car/car.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
       appId: 'caroo-app',
     }),
     AppRoutingModule,
+    CarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

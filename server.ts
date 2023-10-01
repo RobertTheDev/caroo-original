@@ -7,6 +7,7 @@ import { existsSync } from 'fs';
 import { join } from 'path';
 
 import { AppServerModule } from './src/main.server';
+import appRouter from 'api/router';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
@@ -27,8 +28,9 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  // Example Express Rest API endpoints
-  // server.get('/api/**', (req, res) => { });
+  // App router imports and defines express rest API endpoints.
+  server.use('/api/', appRouter);
+
   // Serve static files from /browser
   server.get(
     '*.*',
@@ -36,10 +38,6 @@ export function app(): express.Express {
       maxAge: '1y',
     })
   );
-
-  server.get('/hello', (req, res) => {
-    res.send('hell');
-  });
 
   // All regular routes use the Universal engine
   server.get('*', (req, res) => {

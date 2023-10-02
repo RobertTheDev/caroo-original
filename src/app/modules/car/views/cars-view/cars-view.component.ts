@@ -16,11 +16,11 @@ export class CarsViewComponent implements OnInit {
 
   ngOnInit() {
     this.carService.getCars().subscribe({
-      next: (data) => {
+      next: data => {
         this.loading = false;
         this.cars = data.data;
       },
-      error: (error) => {
+      error: error => {
         this.loading = false;
         this.errorMessage = error;
       },

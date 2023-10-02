@@ -9,7 +9,10 @@ import { CarService } from 'src/app/services/car/car.service';
   styleUrls: ['./car-view.component.scss'],
 })
 export class CarViewComponent implements OnInit {
-  constructor(private carService: CarService, private route: ActivatedRoute) {}
+  constructor(
+    private carService: CarService,
+    private route: ActivatedRoute
+  ) {}
 
   car: ICar | null = null;
 
@@ -17,10 +20,10 @@ export class CarViewComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
 
     this.carService.getCarById(id).subscribe({
-      next: (data) => {
+      next: data => {
         this.car = data.data;
       },
-      error: (error) => {
+      error: error => {
         console.log(error.error);
       },
     });

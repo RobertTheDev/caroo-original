@@ -6,9 +6,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./modules/car/car-routing.module').then(
-        (m) => m.CarRoutingModule
-      ),
+      import('./modules/car/car-routing.module').then(m => m.CarRoutingModule),
   },
   { path: '**', component: NotFoundViewComponent },
 ];

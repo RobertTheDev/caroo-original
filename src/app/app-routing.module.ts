@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundViewComponent } from './modules/shared/views/not-found-view/not-found-view.component';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
         (m) => m.CarRoutingModule
       ),
   },
+  { path: '**', component: NotFoundViewComponent },
 ];
 
 @NgModule({

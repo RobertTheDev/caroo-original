@@ -14,4 +14,10 @@ export class CarService {
   getCars(): Observable<{ data: ICar[] }> {
     return this.http.get<{ data: ICar[] }>('http://localhost:4200/api/cars');
   }
+
+  getCarById(id: string): Observable<{ data: ICar | null }> {
+    return this.http.get<{ data: ICar | null }>(
+      `http://localhost:4200/api/cars/${id}`
+    );
+  }
 }

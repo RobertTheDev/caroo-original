@@ -8,6 +8,7 @@ import { CreateCarViewComponent } from './views/create-car-view/create-car-view.
 import { CarViewComponent } from './views/car-view/car-view.component';
 import { UpdateCarViewComponent } from './views/update-car-view/update-car-view.component';
 import { CarService } from 'src/app/services/car/car.service';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { CarService } from 'src/app/services/car/car.service';
     CarViewComponent,
     UpdateCarViewComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     CarsViewComponent,
     CreateCarViewComponent,

@@ -12,7 +12,8 @@
     "build:ssr": "ng build && ng run caroo:server",
     "prerender": "ng run caroo:prerender",
     "lint": "ng lint",
-    "lint:fix": "ng lint --fix"
+    "lint:fix": "ng lint --fix",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -51,7 +52,7 @@
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "husky": "^8.0.3",
+    "husky": "^8.0.0",
     "jasmine-core": "~4.5.0",
     "jest": "^29.7.0",
     "karma": "~6.4.0",

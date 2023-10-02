@@ -11,7 +11,8 @@
     "serve:ssr": "node dist/caroo/server/main.js",
     "build:ssr": "ng build && ng run caroo:server",
     "prerender": "ng run caroo:prerender",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix"
   },
   "private": true,
   "dependencies": {

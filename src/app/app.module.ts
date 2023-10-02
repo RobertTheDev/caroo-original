@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { CarModule } from './modules/car/car.module';
 import { LayoutModule } from './modules/layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
+import { SharedModule } from './modules/shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     CarModule,
     HttpClientModule,
     LayoutModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -20,6 +20,12 @@ import { CarService } from 'src/app/services/car/car.service';
     UpdateCarViewComponent,
   ],
   imports: [CommonModule],
+  exports: [
+    CarsViewComponent,
+    CreateCarViewComponent,
+    CarViewComponent,
+    UpdateCarViewComponent,
+  ],
   providers: [CarService],
 })
 export class CarModule {}

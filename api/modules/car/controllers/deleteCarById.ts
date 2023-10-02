@@ -1,29 +1,32 @@
 import prisma from 'api/lib/db/prisma';
+import logger from 'api/lib/logger/winstonLogger';
 import { Request, Response } from 'express';
 
 // This handler deletes a car using its unique id in the database.
 
 export default async function deleteCarById(req: Request, res: Response) {
   try {
-    // Get id from the request params.
+    // STEP 1: Delete car from the db using the id from request params.
     const { id } = req.params;
 
-    // Delete car from the db.
     const deletedCar = await prisma.car.delete({
       where: {
         id,
       },
     });
 
-    // If no car was deleted return an error.
+    // STEP 2: Return a success or error message depending on the outcome of the result.
     if (!deletedCar) {
       return res.status(400).json({ success: false });
     }
 
-    // If a car was found then return the car.
     return res.status(200).json({ success: true, data: {} });
   } catch (error) {
-    // Return an error if one occurs.
+    // If an error occurs then log the error and return an unsuccessful statement.
+    const errorMessage = (error as Error).message;
+    logger.error(
+      `Error in route ${req.method} ${req.originalUrl}: ${errorMessage}`
+    );
     return res.status(400).json({ success: false });
   }
 }

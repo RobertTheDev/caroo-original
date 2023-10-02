@@ -1,1 +1,3 @@
-<p>{{ car.year }} {{ car.make }} {{ car.model }}</p>
+<a [routerLink]="'/cars/' + car.id">
+  <p>{{ car.year }} {{ car.make }} {{ car.model }}</p>
+</a>

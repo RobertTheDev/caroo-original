@@ -1,17 +1,21 @@
 import prisma from 'api/lib/db/prisma';
+import logger from 'api/lib/logger/winstonLogger';
 import { Request, Response } from 'express';
 
 // This handler gets all cars from the database.
 
-export default async function getCars(_req: Request, res: Response) {
+export default async function getCars(req: Request, res: Response) {
   try {
-    // Get all the found cars
+    // Find and return all the cars in the db.
     const cars = await prisma.car.findMany();
 
-    // Return all the found cars.
-    res.status(200).json({ success: true, data: cars });
+    return res.status(200).json({ success: true, data: cars });
   } catch (error) {
-    // Return an error if one occurs.
-    res.status(400).json({ success: false });
+    // If an error occurs then log the error and return an unsuccessful statement.
+    const errorMessage = (error as Error).message;
+    logger.error(
+      `Error in route ${req.method} ${req.originalUrl}: ${errorMessage}`
+    );
+    return res.status(400).json({ success: false });
   }
 }
